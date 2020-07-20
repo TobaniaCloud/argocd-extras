@@ -1,5 +1,8 @@
 FROM argoproj/argocd:v1.6.1
 
+##
+# Install mozilla sops
+##
 ARG SOPS_VERSION=3.6.0
 
 USER root
@@ -9,6 +12,9 @@ RUN dpkg -i /tmp/sops_amd64.deb \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 USER argocd
 
+##
+# Install helm-secrets plugin
+##
 ARG SECRETS_PLUGIN_VERSION="2.0.2"
 
 RUN helm plugin install https://github.com/zendesk/helm-secrets --version ${SECRETS_PLUGIN_VERSION}
