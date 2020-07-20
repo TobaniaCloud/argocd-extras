@@ -20,3 +20,6 @@ ARG SECRETS_PLUGIN_VERSION="2.0.2"
 RUN helm plugin install https://github.com/zendesk/helm-secrets --version ${SECRETS_PLUGIN_VERSION}
 
 ENV HELM_PLUGINS="/home/argocd/.local/share/helm/plugins/"
+
+ENV PATH="/home/argocd/.bin:${PATH}"
+COPY bin/helm-wrapper.sh /home/argocd/.bin/helm
