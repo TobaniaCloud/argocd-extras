@@ -1,4 +1,4 @@
-FROM argoproj/argocd:v1.6.1
+FROM argoproj/argocd:v1.6.2
 
 ##
 # Install mozilla sops
